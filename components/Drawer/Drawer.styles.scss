@@ -1,0 +1,67 @@
+.drawer {
+  @apply fixed top-0 left-0 flex h-full w-full;
+}
+
+.drawer.left {
+  @apply justify-start;
+  --translation: translateX(-100%);
+}
+
+.drawer.right {
+  @apply justify-end;
+  --translation: translateX(100%);
+}
+
+.drawer__backdrop {
+  @apply fixed z-10 h-full w-full bg-black/40;
+}
+
+.drawer__body {
+  @apply relative z-20 min-h-full max-w-xs flex-1 bg-white;
+}
+
+.drawer.exit-done {
+  display: none !important;
+}
+
+.drawer__body,
+.drawer__backdrop {
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+}
+
+.drawer.enter-active .drawer__body {
+  animation-name: drawer-body-in;
+}
+
+.drawer.exit-active .drawer__body {
+  animation-name: drawer-body-in;
+  animation-direction: reverse;
+}
+
+.drawer.drawer.enter-active .drawer__backdrop {
+  animation-name: drawer-backdrop-in;
+}
+
+.drawer.drawer.exit-active .drawer__backdrop {
+  animation-name: drawer-backdrop-in;
+  animation-direction: reverse;
+}
+
+@keyframes drawer-body-in {
+  0% {
+    transform: var(--translation);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-backdrop-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

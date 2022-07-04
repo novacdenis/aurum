@@ -1,0 +1,39 @@
+.section {
+  @apply my-16 mx-8 max-w-[1610px];
+
+  &.fullsize {
+    @apply max-w-none;
+  }
+
+  &__header {
+    @apply mb-8;
+
+    &.center {
+      @apply text-center;
+    }
+
+    &-title {
+      @apply text-3xl font-medium;
+    }
+
+    &-subtitle {
+      @apply mb-6 text-[10px] uppercase;
+    }
+  }
+
+  @screen lg {
+    @apply my-28 mx-auto;
+
+    &__header {
+      @apply mb-16;
+
+      &-title {
+        @apply text-7xl;
+      }
+
+      &-subtitle {
+        @apply mb-10 text-sm;
+      }
+    }
+  }
+}
